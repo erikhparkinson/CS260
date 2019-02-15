@@ -1,0 +1,50 @@
+label {
+  font-size: 2 em;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+}
+
+.joke {
+  margin: 100px;
+  text-align: center;
+}
+
+
+label {
+  margin: 10px;
+}
+
+input {
+  margin: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+body {
+  background-color: blue;
+}
+
+
+section {
+ display: flex;
+}
+
+aside {
+ flex: 1
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: #38E7FB;
+  text-align: center;
+}
