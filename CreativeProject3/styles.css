@@ -6,6 +6,17 @@ body {
     text-align: center;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: #38E7FB;
+  text-align: center;
+}
+
+
 /* List */
 
 ul {
