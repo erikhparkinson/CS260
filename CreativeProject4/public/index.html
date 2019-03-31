@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <title>GPA Calculator</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="header">
+      <h1>GPA Calculator</h1>
+    </div>
+
+    <div class="content">
+      <form @submit.prevent="addGrade">
+        <input v-model="addedClass" placeholder="Class">
+        <select v-model="addedGrade" name="jumpmenu">
+          <option>Select Grade</option>
+          <option value=A>A</option>
+          <option value=A->A-</option>
+          <option value=B+>B+</option>
+          <option value=B>B</option>
+          <option value=B->B-</option>
+          <option value=C+>C+</option>
+          <option value=C>C</option>
+          <option value=C->C-</option>
+          <option value=D+>D+</option>
+          <option value=D>D</option>
+          <option value=D->D-</option>
+          <option value=F>F</option>
+        </select>
+        <select v-model="addedMajor" name="jumpmenu">
+          <option>Part of Major?</option>
+          <option value=Yes>Yes</option>
+          <option value=No>No</option>
+        </select>
+        <p v-if="show_error">{{error}}</p>
+        <button type="submit">Add Class</button>
+      </form>
+
+
+      <h3>Class History</h3>
+      <div v-for="grade in grades">
+        <hr>
+
+        <div v-if="grade._id === editID">
+          <form @submit.prevent="saveEdits" class='editSpot'>
+            <input v-model="editClass" class='edit_name'>
+            <select v-model="editGrade" name="jumpmenu" class='edit_grade'>
+              <option value=A>A</option>
+              <option value=A->A-</option>
+              <option value=B+>B+</option>
+              <option value=B>B</option>
+              <option value=B->B-</option>
+              <option value=C+>C+</option>
+              <option value=C>C</option>
+              <option value=C->C-</option>
+              <option value=D+>D+</option>
+              <option value=D>D</option>
+              <option value=D->D-</option>
+              <option value=F>F</option>
+            </select>
+            <select v-model="editMajor" name="jumpmenu" class='edit_major'>
+              <option value=Yes>Yes</option>
+              <option value=No>No</option>
+            </select>
+            <button type="submit" class='edit_save'>Save Edits</button>
+          </form>
+        </div>
+
+        <div v-else>
+          <div class="gradeSpot">
+            <div class="class_name">
+              <p>{{grade.class}}</p>
+            </div>
+            <div class="grade">
+              <p>{{grade.grade}}</p>
+            </div>
+            <div class="major">
+              <p>{{grade.major}}</p>
+            </div>
+            <div class="delete">
+              <button @click="deleteGrade(grade)" class="delete">Delete</button>
+            </div>
+            <div class="edit">
+              <button @click="startEdit(grade)" class="edit">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-show="grades.length > 0">
+        <hr>
+        <p>GPA:{{gpa}}</p>
+        <p>Major GPA:{{major_gpa}}</p>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="/script.js"></script>
+</body>
+
+</html>
