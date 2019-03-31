@@ -19,4 +19,4 @@ mongoose.connect('mongodb://localhost:27017/grades', {
 const grades = require("./grades.js");
 app.use("/api/grades", grades);
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+app.listen(3001, () => console.log('Server listening on port 3001!'));
