@@ -1,14 +1,6 @@
 // const express = require('express');
 const bodyParser = require("body-parser");
 
-const upload = multer({
-  dest: '/var/www/gpa.erikparkinson.xyz/images/',
-  limits: {
-    fileSize: 10000000
-  }
-});
-
-
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
