@@ -14,10 +14,27 @@
   <div class="content">
     <router-view />
   </div>
+  <div class="footer">
+    <a href="https://github.com/erikhparkinson/CS260">GitHub</a>
+  </div>
 </div>
 </template>
 
 <style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: red;
+  text-align: center;
+}
+
+a {
+  color: #F2385A;
+}
+
 /* https://color.adobe.com/Ventana-Azul-color-theme-2159606/?showPublished=true */
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
